@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<head>
+    <title>ADD FILE</title>
+    <link rel="stylesheet" href="static/css/handle_file.css">
+    <link rel="stylesheet" href="static/css/connect_blockchain.css">
+    <link rel="stylesheet" href="static/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/vendor/jquery/jquery-3.5.1.js">
+    <link rel="stylesheet" href="static/vendor/bootstrap/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="grandParentContaniner">
+        <div class="parentContainer">
+
+            <div class="container">
+                <div class="alert alert-custom fade in alert-dismissable show">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.style.display='none';">
+						<span aria-hidden="true">×</span>
+					</button>
+                    <img src="{{ message }}" alt="QR Code">
+                </div>
+            </div>
+
+            <form class="file-frm" method="post" action="/add_file" enctype="multipart/form-data">
+
+                <h3>Upload a file </h3>
+                <br><br>
+
+                <div class="form-group">
+                    <label>Doctor Id :</label>
+                    <input type="text" name="doctorId" class="form-control" placeholder="Doctor Id" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Patient Id :</label>
+                    <input type="text" name="patientId" class="form-control" placeholder="Patient Id" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Reciept Id :</label>
+                    <input type="text" name="recieptId" class="form-control" placeholder="Session Reciept Id" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Encryption key :</label>
+                    <input type="password" name="encryptionKey" class="form-control" placeholder="Your file encryption key" required>
+                </div>
+
+                <br>
+
+                <div class="form-group file-input">
+                    <input type="file" name="file" class="" required>
+                </div>
+
+                <br>
+
+                <!-- <a class="btn view-chain" href="{{ url_for('connect_blockchain') }}">View chain</a> -->
+                <button type="submit" class="send-btn">Submit</button><br><br>
+                <a href="{{ url_for('connect_blockchain') }}"><input type=”button” class="view-chain" value="View chain"></a>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
